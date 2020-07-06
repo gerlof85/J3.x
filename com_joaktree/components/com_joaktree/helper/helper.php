@@ -881,7 +881,9 @@ class JoaktreeHelper {
 	}
 	
 	private function getMenuId( $tree_id, $view) {
-		$menu 		= &JSite::getMenu();
+		//$menu 		= &JSite::getMenu();
+		//replaced the above line with the one below to fix “0 – Using $this when not in object context” error with php 7.3
+        	$menu 		= JFactory::getApplication()->getMenu();
 		$component	= &JComponentHelper::getComponent('com_joaktree');
 		$items		= $menu->getItems('component_id', $component->id);
 		$itemFound	= false;
